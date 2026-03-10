@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+*.env
+!.env.example
+
+# Logs
+*.log
+/logs/
+
+# Secrets
+*.pem
+*.key
+*.crt
+id_rsa*
