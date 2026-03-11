@@ -241,23 +241,23 @@ devops-learning-journal/
 
 ---
 
-## 🎯 خارطة طريق التعلم
+## 🎯 خارطة طريق التعلم | Learning Roadmap
 
-```text
-خارطة طريق DevOps 2025-2026
-│
-├── ✅ لينكس وسكربتات Shell          ████████████████████ %100
-├── ✅ Docker و Docker Compose       ████████████████████ %100
-├── ✅ أمان الخوادم والتقوية          ████████████████████ %100
-├── ✅ Ansible (إدارة التكوين)        ██████████████████░░  %90
-├── ✅ CI/CD (Jenkins)               ████████████████░░░░  %80
-├── ✅ HashiCorp (Nomad/Consul)      ██████████████░░░░░░  %70
-├── 🔄 Kubernetes (تعمق)             ████████░░░░░░░░░░░░  %40
-├── 🔄 Terraform (IaC)               ██████░░░░░░░░░░░░░░  %30
-├── 📋 سحابة AWS                     ████░░░░░░░░░░░░░░░░  %20
-├── 📋 Prometheus و Grafana          ████░░░░░░░░░░░░░░░░  %20
-└── 📋 GitOps (ArgoCD)               ██░░░░░░░░░░░░░░░░░░  %10
-```
+<!-- Using English labels to prevent RTL/LTR rendering issues with progress bars -->
+
+| | المجال / Skill | التقدم / Progress | النسبة |
+| :--- | :--- | :--- | :---: |
+| ✅ | Linux & Shell Scripting (لينكس وسكربتات) | ████████████████████ | 100% |
+| ✅ | Docker & Docker Compose | ████████████████████ | 100% |
+| ✅ | Server Security & Hardening (أمان الخوادم) | ████████████████████ | 100% |
+| ✅ | Ansible - Config Management (إدارة التكوين) | ██████████████████░░ | 90% |
+| ✅ | CI/CD - Jenkins | ████████████████░░░░ | 80% |
+| ✅ | HashiCorp - Nomad/Consul | ██████████████░░░░░░ | 70% |
+| 🔄 | Kubernetes - Deep Dive (تعمّق) | ████████░░░░░░░░░░░░ | 40% |
+| 🔄 | Terraform - IaC | ██████░░░░░░░░░░░░░░ | 30% |
+| 📋 | AWS Cloud (سحابة AWS) | ████░░░░░░░░░░░░░░░░ | 20% |
+| 📋 | Prometheus & Grafana | ████░░░░░░░░░░░░░░░░ | 20% |
+| 📋 | GitOps - ArgoCD | ██░░░░░░░░░░░░░░░░░░ | 10% |
 
 ---
 
