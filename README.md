@@ -3,6 +3,7 @@
 # 📚 DevOps Learning Journal
 
 ### Daily Learning & Documentation Repository
+### مستودع التعلم والتوثيق اليومي
 
 [![DevOps](https://img.shields.io/badge/DevOps-Engineer-00D4FF?style=for-the-badge&logo=dev.to&logoColor=white)](https://github.com/mmsal512)
 [![Learning](https://img.shields.io/badge/Status-Active_Learning-brightgreen?style=for-the-badge)](https://github.com/mmsal512/devops-learning-journal)
@@ -10,9 +11,13 @@
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=20&pause=1000&color=00D4FF&center=true&vCenter=true&random=false&width=500&lines=Learning+DevOps+One+Day+at+a+Time;Building+Skills+Through+Practice;From+Beginner+to+Expert+🚀" alt="Typing SVG" />
 
+**[English](#-about-this-repository) | [العربية](#-حول-هذا-المستودع)**
+
 </div>
 
 ---
+
+# 🇬🇧 English
 
 ## 📋 About This Repository
 
@@ -143,10 +148,143 @@ To keep this journal active and my GitHub graph green:
 
 ---
 
+<br>
+
+# 🇸🇦 العربية
+
+## 📋 حول هذا المستودع
+
+هذا هو **دفتر تعلم DevOps اليومي** الخاص بي حيث أوثق كل ما أتعلمه وأمارسه وأبنيه. كل يوم، أقوم بالتزام واحد على الأقل — سواء كان ملاحظات، سكربتات، تكوينات، أو ملفات مشاريع — للحفاظ على رسم بياني نشط للمساهمات على GitHub وتتبع نموي كمهندس DevOps.
+
+> **"الاستمرارية تتفوق على الشدة. التحسينات اليومية الصغيرة تؤدي إلى نتائج مذهلة."**
+
+---
+
+## 🗂️ هيكل المستودع
+
+```text
+devops-learning-journal/
+│
+├── 📂 linux-scripting/          # أوامر لينكس، سكربتات Bash، إدارة النظام
+│   ├── commands/                # مراجع الأوامر المفيدة
+│   ├── scripts/                 # سكربتات التمرين
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 docker/                   # Docker و Docker Compose
+│   ├── dockerfiles/             # ملفات Dockerfile للتمرين
+│   ├── compose-files/           # أمثلة Docker Compose
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 kubernetes/               # Kubernetes و K3s
+│   ├── manifests/               # ملفات K8s YAML
+│   ├── helm-charts/             # تمارين Helm chart
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 cicd/                     # أنابيب CI/CD
+│   ├── jenkins/                 # أمثلة Jenkinsfile
+│   ├── github-actions/          # سير عمل GitHub Actions
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 terraform/                # البنية التحتية كشفرة (IaC)
+│   ├── modules/                 # وحدات Terraform
+│   ├── projects/                # مشاريع التمرين
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 ansible/                  # إدارة التكوين
+│   ├── playbooks/               # أدلة تشغيل Ansible
+│   ├── roles/                   # أدوار Ansible
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 security/                 # الأمان والتقوية
+│   ├── configs/                 # تكوينات الأمان
+│   ├── scripts/                 # سكربتات الأمان
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 monitoring/               # المراقبة والملاحظة
+│   ├── prometheus/              # تكوينات Prometheus
+│   ├── grafana/                 # لوحات Grafana
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 networking/               # الشبكات وتوزيع الأحمال
+│   ├── traefik/                 # تكوينات Traefik
+│   ├── nginx/                   # تكوينات Nginx
+│   ├── consul/                  # اكتشاف الخدمات Consul
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 hashicorp/                # أدوات HashiCorp
+│   ├── nomad/                   # مهام Nomad وتكويناته
+│   ├── consul/                  # تكوينات Consul
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 aws/                      # سحابة AWS
+│   ├── services/                # ملاحظات خدمات AWS
+│   ├── projects/                # مشاريع التمرين
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 gitops/                   # GitOps و ArgoCD
+│   ├── argocd/                  # تكوينات ArgoCD
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 databases/                # قواعد البيانات والتخزين المؤقت
+│   ├── postgresql/              # تمارين PostgreSQL
+│   ├── redis/                   # تمارين Redis
+│   └── notes/                   # ملاحظات التعلم
+│
+├── 📂 scripts/                  # سكربتات المساعدة والأتمتة
+│   └── daily-automation/        # أدوات الأتمتة اليومية
+│
+├── 📂 notes/                    # ملاحظات عامة وسجلات
+│   └── daily-log.md             # 📝 سجل التعلم اليومي
+│
+└── README.md                    # هذا الملف
+```
+
+---
+
+## 🎯 خارطة طريق التعلم
+
+```text
+خارطة طريق DevOps 2025-2026
+│
+├── ✅ لينكس وسكربتات Shell          ████████████████████ %100
+├── ✅ Docker و Docker Compose       ████████████████████ %100
+├── ✅ أمان الخوادم والتقوية          ████████████████████ %100
+├── ✅ Ansible (إدارة التكوين)        ██████████████████░░  %90
+├── ✅ CI/CD (Jenkins)               ████████████████░░░░  %80
+├── ✅ HashiCorp (Nomad/Consul)      ██████████████░░░░░░  %70
+├── 🔄 Kubernetes (تعمق)             ████████░░░░░░░░░░░░  %40
+├── 🔄 Terraform (IaC)               ██████░░░░░░░░░░░░░░  %30
+├── 📋 سحابة AWS                     ████░░░░░░░░░░░░░░░░  %20
+├── 📋 Prometheus و Grafana          ████░░░░░░░░░░░░░░░░  %20
+└── 📋 GitOps (ArgoCD)               ██░░░░░░░░░░░░░░░░░░  %10
+```
+
+---
+
+## 📊 قواعد المساهمة
+
+للحفاظ على هذا الدفتر نشطاً ورسمي البياني أخضر على GitHub:
+
+1. **📝 التزام واحد على الأقل يومياً** — حتى لو كان مجرد ملاحظة
+2. **🔄 الجودة قبل الكمية** — ركّز على التعلم ذي المغزى
+3. **📖 وثّق كل شيء** — اكتب الملاحظات بالعربية و/أو الإنجليزية
+4. **🧪 تمرّن عملياً** — سكربتات، تكوينات، ومشاريع صغيرة
+5. **📈 تتبع التقدم** — حدّث السجل اليومي بانتظام
+
+---
+
+## 📫 تواصل معي
+
+- 🔗 [ملف GitHub الشخصي](https://github.com/mmsal512)
+- 💼 [LinkedIn](https://www.linkedin.com/in/mohammed-alefari-283211306/)
+- 🌐 [الموقع الإلكتروني](https://tabdil.mmsal512.cloud)
+
+---
+
 <div align="center">
 
-**Made with ❤️ by [Mohammed Alefari](https://github.com/mmsal512)**
+**صُنع بـ ❤️ بواسطة [محمد العفاري](https://github.com/mmsal512)**
 
-*One commit a day keeps imposter syndrome away! 🚀*
+*التزام واحد يومياً يُبعد عنك متلازمة المحتال! 🚀*
 
 </div>
