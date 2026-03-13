@@ -8,6 +8,66 @@
 
 ---
 
+## 📅 2026-03-12 — Day 3 | اليوم الثالث
+
+### 🎯 What I Did Today | ماذا أنجزت اليوم
+
+- ✅ **Security Audit for `infra-full-stack` — Found & Fixed 5 Issues | فحص أمني لمشروع البنية التحتية — اكتشاف وإصلاح 5 مشاكل** — Performed a comprehensive security scan of the entire repository before making it public. Removed all hardcoded sensitive data | إجراء فحص أمني شامل للريبو بالكامل قبل نشره عامًا. إزالة جميع البيانات الحساسة المكتوبة مباشرة
+  - **Removed real Tailscale IP | إزالة عنوان Tailscale الحقيقي:** Replaced `100.126.131.64` with `YOUR_TAILSCALE_IP` placeholder across 5 files (ansible inventory, playbook, setup script, health-check script) | استبدال العنوان الحقيقي بـ placeholder في 5 ملفات
+  - **Removed Grafana password | إزالة كلمة مرور Grafana:** Replaced hardcoded `admin123` from K8s deployment YAML and setup script | إزالة كلمة المرور المكشوفة من ملفات النشر والسكربتات
+  - **Removed server hostname | إزالة اسم السيرفر:** Cleaned `srv1262599` references from ansible inventory and scripts | تنظيف مراجع اسم السيرفر من ملفات Ansible والسكربتات
+  - **Verified GitHub Actions Secrets | التحقق من أسرار GitHub Actions:** Confirmed all 6 secrets (DOCKER_USERNAME, DOCKER_TOKEN, SERVER_TAILSCALE_IP, SSH_PRIVATE_KEY, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID) use `${{ secrets.* }}` properly | التأكد من أن جميع الأسرار الستة تستخدم مراجع آمنة
+
+- ✅ **Migrated Grafana Password to Kubernetes Secrets | ترحيل كلمة مرور Grafana إلى K8s Secrets** — Replaced the hardcoded password in `grafana/deployment.yaml` with a `secretKeyRef` that reads from a Kubernetes Secret, which is automatically created by the CD pipeline from a GitHub Secret | استبدال كلمة المرور الثابتة بـ `secretKeyRef` يقرأ من K8s Secret يُنشأ تلقائيًا من GitHub Secret
+  - **Flow | المسار:** `GitHub Secret (GRAFANA_ADMIN_PASSWORD)` → `SSH Action (envs)` → `kubectl create secret` → `K8s Secret (grafana-secrets)` → `Grafana Pod (secretKeyRef)`
+  - **Updated `cd.yaml` | تحديث خط النشر:** Added `env` block and `envs` parameter to pass the secret via SSH, and a `kubectl create secret --dry-run=client -o yaml | kubectl apply` command for idempotent secret creation | إضافة تمرير المتغير عبر SSH وأمر إنشاء السر بطريقة متكررة
+
+- ✅ **Updated `app.py` to Trigger CI/CD Pipeline | تحديث التطبيق لتشغيل خط CI/CD** — Bumped default version from `1.0.0` → `1.1.0` and added `last_updated` field to trigger the CI pipeline (watches `app/**` path) | رفع الإصدار وإضافة حقل التحديث لتفعيل خط الأنابيب
+
+- ✅ **Created Professional Bilingual README.md for `infra-full-stack` | إنشاء README احترافي ثنائي اللغة** — Comprehensive documentation covering architecture, project structure, API endpoints, CI/CD flows, monitoring stack, security practices, and quick start guide | توثيق شامل يغطي الهيكلية، بنية المشروع، نقاط API، مسار CI/CD، حزمة المراقبة، ممارسات الأمان، ودليل البدء السريع
+  - ASCII architecture diagram showing full deployment flow | رسم هيكلي يوضح مسار النشر الكامل
+  - Tech stack badges (Python, Flask, Docker, K3s, Terraform, Ansible, GitHub Actions, Prometheus, Grafana) | شارات التقنيات المستخدمة
+
+- ✅ **Updated GitHub Profile README (`mmsal512`) | تحديث بروفايل GitHub** — Added `infra-full-stack` as the top featured project, added Terraform + Prometheus + Grafana badges, and updated the learning roadmap progress | إضافة المشروع كأول مشروع مميز، وإضافة شارات التقنيات الجديدة، وتحديث نسب التقدم
+  - CI/CD: 80% → **90%** | Kubernetes: 40% → **60%** | Terraform: 30% → **50%** | Prometheus & Grafana: 20% → **50%**
+
+### 🛠️ Tools & Technologies Used | الأدوات والتقنيات المستخدمة
+
+| Tool / الأداة | Purpose / الغرض |
+| :--- | :--- |
+| GitHub Actions | CI/CD pipeline — Test, Build, Push, Deploy, Notify / خط أنابيب التكامل والنشر المستمر |
+| GitHub Secrets | Secure storage for credentials (7 secrets configured) / تخزين آمن لبيانات الاعتماد |
+| Kubernetes Secrets | Secure password injection into Grafana pods / حقن كلمة المرور بشكل آمن في حاويات Grafana |
+| `appleboy/ssh-action` | Remote deployment via SSH with environment variable forwarding / النشر عن بعد عبر SSH مع تمرير المتغيرات |
+| `kubectl` | Creating secrets, applying manifests, rolling restarts / إنشاء الأسرار وتطبيق البيانات وإعادة التشغيل |
+| Docker | Multi-stage build for Flask app (Python 3.12-slim) / بناء متعدد المراحل لتطبيق Flask |
+| Prometheus | Metrics collection with auto-discovery and alert rules / جمع المقاييس مع الاكتشاف التلقائي وقواعد التنبيه |
+| Grafana | Pre-provisioned dashboards with 6 monitoring panels / لوحات مراقبة مُعدة مسبقًا بـ 6 أقسام |
+| `grep` / `ripgrep` | Scanning repository for sensitive data patterns / فحص الريبو للبحث عن أنماط البيانات الحساسة |
+| Git | Version control, `.gitignore` security rules / التحكم بالإصدارات وقواعد تجاهل الملفات الحساسة |
+
+### 📚 What I Learned | ماذا تعلمت
+
+1. **Repository Security Scanning | فحص أمان الريبو** — How to systematically scan a repository for sensitive data (IPs, passwords, hostnames, API keys, tokens) using regex patterns before making it public | كيفية فحص الريبو بشكل منهجي للبحث عن البيانات الحساسة باستخدام أنماط regex قبل النشر العام
+2. **Kubernetes Secrets with GitHub Actions | أسرار Kubernetes مع GitHub Actions** — How to securely pass secrets from GitHub → SSH → K8s using `appleboy/ssh-action`'s `envs` feature and `kubectl create secret --dry-run=client -o yaml | kubectl apply -f -` for idempotent creation | كيفية تمرير الأسرار بشكل آمن من GitHub إلى K8s عبر SSH مع إنشاء متكرر
+3. **CI/CD Pipeline Design | تصميم خط CI/CD** — Full pipeline architecture: Test (pytest) → Build (Docker multi-stage) → Push (DockerHub with 3 tags) → Deploy (SSH + kubectl) → Health Check (retry loop) → Notify (Telegram) | هيكلية خط الأنابيب الكاملة من الاختبار حتى الإشعار
+4. **Zero-Downtime Deployments | نشر بدون توقف** — Using Kubernetes `RollingUpdate` strategy with `maxSurge: 1` and `maxUnavailable: 0`, combined with liveness and readiness probes | استخدام استراتيجية التحديث التدريجي مع فحوصات الصحة والجاهزية
+5. **Infrastructure Documentation Best Practices | أفضل ممارسات التوثيق** — Creating comprehensive bilingual README with architecture diagrams, project trees, API docs, and deployment guides that serve as both documentation and portfolio showcase | إنشاء توثيق شامل ثنائي اللغة يخدم كوثائق ومعرض أعمال
+
+### 💡 Key Takeaways | الخلاصات الرئيسية
+
+> **EN:** Security must be treated as a first-class concern in every DevOps workflow. Before making any repository public, perform a thorough scan for hardcoded IPs, passwords, hostnames, and API keys. Use Kubernetes Secrets and GitHub Actions Secrets to manage sensitive data — never hardcode credentials in YAML files. A well-designed CI/CD pipeline should handle the entire lifecycle: test → build → push → deploy → verify → notify. And always document your infrastructure professionally — your README is the first impression recruiters and collaborators see.
+
+> **AR:** يجب معاملة الأمان كأولوية قصوى في كل سير عمل DevOps. قبل نشر أي ريبو عامًا، قم بفحص شامل للبحث عن عناوين IP وكلمات المرور وأسماء السيرفرات ومفاتيح API المكتوبة مباشرة. استخدم Kubernetes Secrets و GitHub Actions Secrets لإدارة البيانات الحساسة — لا تكتب بيانات الاعتماد مباشرة في ملفات YAML. خط CI/CD المصمم جيدًا يجب أن يتعامل مع دورة الحياة الكاملة: اختبار ← بناء ← رفع ← نشر ← تحقق ← إشعار. ودائمًا وثّق بنيتك التحتية باحترافية — ملف README هو الانطباع الأول الذي يراه المسؤولون عن التوظيف والمتعاونون.
+
+### 📊 Progress | التقدم
+
+- 🔥 Current Streak / السلسلة الحالية: **3 days / 3 أيام**
+- 📈 Total Commits Today / التزامات اليوم: **3** (infra-full-stack, mmsal512 profile, devops-learning-journal)
+- 🎯 Focus Area / مجال التركيز: CI/CD + Security + Kubernetes Secrets / التكامل المستمر + الأمان + أسرار Kubernetes
+
+---
+
 ## 📅 2026-03-11 — Day 2 | اليوم الثاني
 
 ### 🎯 What I Did Today | ماذا أنجزت اليوم
