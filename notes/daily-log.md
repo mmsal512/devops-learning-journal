@@ -8,14 +8,88 @@
 
 ---
 
+## 📅 2026-03-18 — Day 5 | اليوم الخامس
+
+### 🎯 What I Did Today | ماذا أنجزت اليوم
+
+- ✅ **Developed Personal Portfolio Website `mmsal512.cloud` | تطوير موقع شخصي ومعرض أعمال `mmsal512.cloud`** — Built and launched a professional portfolio using PHP, Laravel, and PostgreSQL database to showcase my DevOps, cloud, and full-stack development skills | بناء وإطلاق موقع شخصي احترافي يعرض مهاراتي وخبراتي في مجال DevOps والتطوير السحابي باستخدام بيئة Laravel و PostgreSQL.
+  - **Dynamic Content Management | إدارة محتوى ديناميكية:** Set up a secure database schema to manage projects, skills, and experiences.
+  - **Custom Domain Integration | ربط النطاق المخصص:** Deployed and linked the application to `mmsal512.cloud` (formerly `tabdil.mmsal512.cloud`), implementing proper UI/UX principles.
+  - **Private Repository | مستودع خاص:** The source code is maintained in a private repository `Mywebsite` to ensure security and manage proprietary implementations.
+
+### 🛠️ Tools & Technologies Used | الأدوات والتقنيات المستخدمة
+
+| Tool / الأداة | Purpose / الغرض |
+| :--- | :--- |
+| PHP & Laravel | Full-stack web framework / إطار عمل تطوير الويب |
+| PostgreSQL (pgsql) | Relational database management / إدارة قواعد البيانات العلائقية |
+| Git | Private repository management / إدارة المستودعات الخاصة |
+
+### 📚 What I Learned | ماذا تعلمت
+
+1. **Portfolio Architecture | معمارية معرض الأعمال** — Designing a portfolio that technically reflects the infrastructure knowledge I claim, demonstrating that the site is secure, fast, and maintainable.
+2. **Database Migrations in PgSQL | ترحيل قواعد البيانات** — Creating efficient tables and relationships specific to PostgreSQL within the Laravel environment.
+3. **Domain Management | إدارة النطاقات** — Managing custom domains and migrating from a subdomain (`tabdil.mmsal512.cloud`) to the main domain (`mmsal512.cloud`).
+
+### 💡 Key Takeaways | الخلاصات الرئيسية
+
+> **EN:** Building your own portfolio using the technologies you advocate for is the ultimate proof of skill. Treating a personal website as a real, production-ready DevOps project reinforces best practices.
+
+> **AR:** بناء موقعك الشخصي باستخدام التقنيات التي تتقنها هو الدليل القاطع على مهاراتك. معاملة الموقع الشخصي كمشروع حقيقي يعزز أفضل الممارسات.
+
+### 📊 Progress | التقدم
+
+- 🔥 Current Streak / السلسلة الحالية: **5 days / 5 أيام**
+- 📈 Total Commits Today / التزامات اليوم: **1**
+- 🎯 Focus Area / مجال التركيز: Full-Stack Development & PostgreSQL / التطوير الشامل وقواعد البيانات
+
+---
+
+## 📅 2026-03-15 — Day 4 | اليوم الرابع
+
+### 🎯 What I Did Today | ماذا أنجزت اليوم
+
+- ✅ **Resolved Docker & Laravel Caching Issues for Local Development | حل مشكلة الكاش في الدوكر واللارافل لبيئة التطوير المحلية** — Understood the root causes of the "Live Reload" issue in Dockerized Laravel applications and implemented a permanent overriding solution without breaking production configurations | فهمت الأسباب الجذرية لمشكلة عدم تحديث الملفات مباشرة في تطبيقات Laravel داخل Docker، وطبقت حلاً جذرياً عبر تجاوز الإعدادات دون التأثير على إعدادات بيئة الإنتاج.
+  - **OPcache Bypass | تجاوز OPcache:** Created `php-dev.ini` and mounted it as `zz-dev.ini` to guarantee it overrides production OPcache settings (`opcache.enable=0`), ensuring PHP reads the latest code changes directly from the volume mount | إنشاء ملف إعدادات جديد وتعطيل OPcache ليقوم التطبيق بقراءة التعديلات مباشرة.
+  - **Smart Entrypoint Script | سكريبت إقلاع ذكي:** Modified `entrypoint.sh` to dynamically clear Laravel caches (`config:clear`, `route:clear`, `view:clear`) when `APP_ENV=local`, while retaining aggressive caching for production | تعديل سكريبت الإقلاع ليمسح الكاش تلقائياً في بيئة التطوير محلياً ويبقيه في بيئة الإنتاج.
+  - **Docker Compose Override | ملف التجاوز:** Utilized `docker-compose.override.yml` to inject development variables (`APP_ENV=local`, `APP_DEBUG=true`) and mount development configuration files seamlessly.
+
+### 🛠️ Tools & Technologies Used | الأدوات والتقنيات المستخدمة
+
+| Tool / الأداة | Purpose / الغرض |
+| :--- | :--- |
+| Docker & Docker Compose | Containerization and overrides / الحاويات وتجاوز الإعدادات |
+| Laravel Artisan | Managing application cache / إدارة الكاش في التطبيق |
+| PHP OPcache | Bytecode caching mechanism / آلية التخزين المؤقت للكود المصدري |
+
+### 📚 What I Learned | ماذا تعلمت
+
+1. **The Role of OPcache | دور OPcache** — OPcache compiles and stores PHP scripts in RAM. In a development environment, this prevents live reloading. Disabling it locally is essential to see immediate code changes.
+2. **Alphabetical Config Loading | التحميل الأبجدي للإعدادات** — PHP reads `.ini` files in `conf.d` alphabetically. Naming the override file `zz-dev.ini` forces it to load last, successfully overwriting any underlying OPcache configurations.
+3. **Dynamic Entrypoints | نقاط الإقلاع الديناميكية** — Using environment variables (e.g., `APP_ENV`) inside `entrypoint.sh` allows a single Dockerfile and script to serve both production (caching) and local development (clearing).
+
+### 💡 Key Takeaways | الخلاصات الرئيسية
+
+> **EN:** To achieve true live reloading in a Dockerized PHP/Laravel environment, you must address both OPcache at the PHP level and Artisan caching at the framework level. Using `docker-compose.override.yml` is the cleanest way to adapt a production-ready container for local development.
+
+> **AR:** للحصول على تحديث مباشر وحقيقي للملفات في بيئة دوكر ولارافل، يجب معالجة الكاش على مستوى لغة PHP (عبر OPcache) وعلى مستوى إطار العمل (عبر Artisan). استخدام ملف التجاوز `docker-compose.override.yml` هو الطريقة الأنظف والأكثر احترافية لتهيئة حاوية الإنتاج للعمل محلياً.
+
+### 📊 Progress | التقدم
+
+- 🔥 Current Streak / السلسلة الحالية: **4 days / 4 أيام**
+- 📈 Total Commits Today / التزامات اليوم: **1**
+- 🎯 Focus Area / مجال التركيز: Docker Optimization & Local Workflows / تحسين الوكر وسير العمل المحلي
+
+---
+
 ## 📅 2026-03-12 — Day 3 | اليوم الثالث
 
 ### 🎯 What I Did Today | ماذا أنجزت اليوم
 
 - ✅ **Security Audit for `infra-full-stack` — Found & Fixed 5 Issues | فحص أمني لمشروع البنية التحتية — اكتشاف وإصلاح 5 مشاكل** — Performed a comprehensive security scan of the entire repository before making it public. Removed all hardcoded sensitive data | إجراء فحص أمني شامل للريبو بالكامل قبل نشره عامًا. إزالة جميع البيانات الحساسة المكتوبة مباشرة
-  - **Removed real Tailscale IP | إزالة عنوان Tailscale الحقيقي:** Replaced `100.126.131.64` with `YOUR_TAILSCALE_IP` placeholder across 5 files (ansible inventory, playbook, setup script, health-check script) | استبدال العنوان الحقيقي بـ placeholder في 5 ملفات
+  - **Removed real Tailscale IP | إزالة عنوان Tailscale الحقيقي:** Replaced `100.123.45.67` with `YOUR_TAILSCALE_IP` placeholder across 5 files (ansible inventory, playbook, setup script, health-check script) | استبدال العنوان الحقيقي بـ placeholder في 5 ملفات
   - **Removed Grafana password | إزالة كلمة مرور Grafana:** Replaced hardcoded `admin123` from K8s deployment YAML and setup script | إزالة كلمة المرور المكشوفة من ملفات النشر والسكربتات
-  - **Removed server hostname | إزالة اسم السيرفر:** Cleaned `srv1262599` references from ansible inventory and scripts | تنظيف مراجع اسم السيرفر من ملفات Ansible والسكربتات
+  - **Removed server hostname | إزالة اسم السيرفر:** Cleaned `srv-example-123` references from ansible inventory and scripts | تنظيف مراجع اسم السيرفر من ملفات Ansible والسكربتات
   - **Verified GitHub Actions Secrets | التحقق من أسرار GitHub Actions:** Confirmed all 6 secrets (DOCKER_USERNAME, DOCKER_TOKEN, SERVER_TAILSCALE_IP, SSH_PRIVATE_KEY, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID) use `${{ secrets.* }}` properly | التأكد من أن جميع الأسرار الستة تستخدم مراجع آمنة
 
 - ✅ **Migrated Grafana Password to Kubernetes Secrets | ترحيل كلمة مرور Grafana إلى K8s Secrets** — Replaced the hardcoded password in `grafana/deployment.yaml` with a `secretKeyRef` that reads from a Kubernetes Secret, which is automatically created by the CD pipeline from a GitHub Secret | استبدال كلمة المرور الثابتة بـ `secretKeyRef` يقرأ من K8s Secret يُنشأ تلقائيًا من GitHub Secret

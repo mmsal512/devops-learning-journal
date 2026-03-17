@@ -19,10 +19,10 @@
 
 | Category | Examples | Risk Level |
 |:---------|:---------|:-----------|
-| **IP Addresses** | `100.126.131.64`, `192.168.1.x` (private/Tailscale) | 🔴 High |
+| **IP Addresses** | `100.123.45.67`, `192.168.1.x` (private/Tailscale) | 🔴 High |
 | **Passwords** | `admin123`, `password`, `mySecretPass` | 🔴 Critical |
 | **API Tokens** | `ghp_xxx`, `sk-xxx`, `AKIA...` | 🔴 Critical |
-| **Server Hostnames** | `srv1262599`, `my-server.example.com` | 🟡 Medium |
+| **Server Hostnames** | `srv-example-123`, `my-server.example.com` | 🟡 Medium |
 | **SSH Keys** | `id_rsa`, `id_ed25519` (private keys) | 🔴 Critical |
 | **Database URLs** | `postgresql://user:pass@host/db` | 🔴 Critical |
 | **Environment Files** | `.env`, `terraform.tfvars` | 🔴 Critical |
@@ -80,8 +80,8 @@ find . -name '*.env' -o -name 'terraform.tfvars' -o -name '*.pem' \
 
 ```diff
 # Before (INSECURE) ❌
--TAILSCALE_IP="100.126.131.64"
--echo "App: http://100.126.131.64:30080"
+-TAILSCALE_IP="100.123.45.67"
+-echo "App: http://100.123.45.67:30080"
 
 # After (SAFE) ✅
 +TAILSCALE_IP="${TAILSCALE_IP:-YOUR_TAILSCALE_IP}"
@@ -107,7 +107,7 @@ find . -name '*.env' -o -name 'terraform.tfvars' -o -name '*.pem' \
 
 ```diff
 # Before (INSECURE) ❌
--srv1262599 ansible_host=100.126.131.64 ansible_user=mohammed
+-srv-example-123 ansible_host=100.123.45.67 ansible_user=mohammed
 
 # After (SAFE) ✅
 +# your-server ansible_host=YOUR_TAILSCALE_IP ansible_user=mohammed
@@ -168,7 +168,7 @@ After fixing, always run these checks again to confirm:
 
 ```bash
 # Verify no real IPs remain
-grep -rn '100.126.131.64' . --include='*.{yaml,yml,sh,ini,tf}'
+grep -rn '100.123.45.67' . --include='*.{yaml,yml,sh,ini,tf}'
 # Expected: No results found ✅
 
 # Verify no passwords remain
@@ -176,7 +176,7 @@ grep -rn 'admin123' . --include='*.{yaml,yml,sh,ini}'
 # Expected: No results found ✅
 
 # Verify no server names remain
-grep -rn 'srv1262599' . --include='*.{yaml,yml,sh,ini}'
+grep -rn 'srv-example-123' . --include='*.{yaml,yml,sh,ini}'
 # Expected: No results found ✅
 ```
 
