@@ -144,7 +144,7 @@ To keep this journal active and my GitHub graph green:
 
 - 🔗 [GitHub Profile](https://github.com/mmsal512)
 - 💼 [LinkedIn](https://www.linkedin.com/in/mohammed-alefari-283211306/)
-- 🌐 [Website](https://tabdil.mmsal512.cloud)
+- 🌐 [Website](https://mmsal512.cloud)
 
 ---
 
