@@ -277,7 +277,7 @@ devops-learning-journal/
 
 - 🔗 [ملف GitHub الشخصي](https://github.com/mmsal512)
 - 💼 [LinkedIn](https://www.linkedin.com/in/mohammed-alefari-283211306/)
-- 🌐 [الموقع الإلكتروني](https://tabdil.mmsal512.cloud)
+- 🌐 [الموقع الإلكتروني](https://mmsal512.cloud)
 
 ---
 
