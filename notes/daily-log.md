@@ -8,6 +8,41 @@
 
 ---
 
+## 📅 2026-03-25 — Day 12 | اليوم الثاني عشر
+
+### 🎯 What I Did Today | ماذا أنجزت اليوم
+
+- ✅ **Optimized Cloudflare Caching & Fixed GitHub API Sync in Laravel Portfolio | تحسين تخزين Cloudflare المؤقت وإصلاح مزامنة GitHub API في معرض الأعمال Laravel** — Repaired tracking mechanisms by configuring Cloudflare Cache Rules and built an automated background process to synchronize GitHub project metrics without manual intervention | إصلاح آليات التتبع من خلال تكوين قواعد التخزين المؤقت في Cloudflare وبناء عملية تلقائية في الخلفية لمزامنة مقاييس مشاريع GitHub دون تدخل يدوي.
+  - **Dynamic Route Caching Bypass | تجاوز التخزين المؤقت للمسارات الديناميكية:** Wrote Cloudflare custom rules to bypass HTML caching for specific sensitive and tracked routes (like admin panels and file downloads), ensuring the origin server correctly tracks visitor analytics and increments database counters | كتابة قواعد مخصصة في Cloudflare لتجاوز التخزين المؤقت لمسارات محددة لضمان تتبع الزوار بشكل صحيح وزيادة عدادات قاعدة البيانات.
+  - **Automated GitHub Metrics Sync | مزامنة تلقائية لمقاييس GitHub:** Developed an Artisan command (`github:refresh`) utilizing Laravel's HTTP client to fetch repositories' stars and forks safely | تطوير أمر Artisan لجلب بيانات النجوم والتفرعات من مستودعات GitHub بشكل آمن.
+  - **Dockerized Laravel Scheduler | جدولة مهام Laravel داخل Docker:** Integrated `php artisan schedule:work` into `supervisord.conf` to run scheduled jobs resiliently inside the production container, enabling the hourly GitHub metrics sync | دمج أمر الجدولة في Supervisor لتشغيل المهام المجدولة داخل حاوية الإنتاج، مما يتيح التحديث التلقائي كل ساعة.
+
+### 🛠️ Tools & Technologies Used | الأدوات والتقنيات المستخدمة
+
+| Tool / الأداة | Purpose / الغرض |
+| :--- | :--- |
+| Cloudflare | Edge Caching & Page Rules / التخزين المؤقت والقواعد على الحافة |
+| Laravel Scheduler | Task Scheduling & Automation / جدولة المهام والأتمتة |
+| Docker & Supervisor | Process Management inside containers / إدارة العمليات داخل الحاويات |
+
+### 📚 What I Learned | ماذا تعلمت
+
+1. **Edge Caching vs Origin Tracking | التخزين المؤقت مقابل تتبع الخادم الأولي** — Understanding how aggressive CDN caching can break server-side analytics, and how to surgically bypass cache for interactive or tracked routes using URI Path rules.
+2. **Containerized Cron Jobs | المهام المجدولة داخل الحاويات** — How to properly run background scheduling processes (like Laravel's schedule:work) inside a Docker container without relying on the host machine's cron tab, directly managed by Supervisor.
+3. **API Rate Limit Awareness | الوعي بحدود استخدام API** — Designing automated API calls (via HTTP facade) to respect external provider rate limits (GitHub API 5000/hr) by caching the process appropriately and running it at measured intervals.
+
+### 💡 Key Takeaways | الخلاصات الرئيسية
+
+> **EN:** A robust infrastructure shouldn't require manual maintenance. Automating data syncs via supervised container processes and setting precise CDN cache rules are hallmarks of a mature DevOps setup.
+> **AR:** البنية التحتية القوية يجب ألا تتطلب صيانة يدوية. أتمتة مزامنة البيانات عبر عمليات الحاويات ووضع قواعد دقيقة لشبكة التوصيل (CDN) هي من علامات النضج في بيئات DevOps.
+
+### 📊 Progress | التقدم
+
+- 🔥 Current Streak / السلسلة الحالية: **12 days / 12 أيام**
+- 📈 Total Commits Today / التزامات اليوم: **2**
+- 🎯 Focus Area / مجال التركيز: CDN Optimization & Container Scheduled Tasks / تحسين شبكات التوصيل والمهام المجدولة للحاويات
+
+---
 ## 📅 2026-03-18 — Day 5 | اليوم الخامس
 
 ### 🎯 What I Did Today | ماذا أنجزت اليوم
