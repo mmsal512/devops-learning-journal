@@ -8,6 +8,40 @@
 
 ---
 
+## 📅 2026-04-06 — Day 13 | اليوم الثالث عشر
+
+### 🎯 What I Did Today | ماذا أنجزت اليوم
+
+- ✅ **Added Docker Cleanup Script with Telegram Notifications | إضافة سكربت تنظيف الدوكر مع إشعارات التلجرام** — Created a bash script to automatically prune unused Docker resources (stopped containers, unused images, networks, volumes, and build cache) and send a detailed summary report to Telegram. Cleaned sensitive data before adding it to the public repo | إنشاء سكربت باش لتنظيف موارد دوكر غير المستخدمة تلقائياً (الحاويات المتوقفة، الصور غير المستخدمة، الشبكات، المجلدات، وكاش البناء) وإرسال تقرير ملخص مفصل إلى تلجرام. تم تنظيف السكربت من البيانات الحساسة واستبدالها بعناصر عامة لحماية الريبو العام.
+
+### 🛠️ Tools & Technologies Used | الأدوات والتقنيات المستخدمة
+
+| Tool / الأداة | Purpose / الغرض |
+| :--- | :--- |
+| Bash | Automation scripting / كتابة سكربتات الأتمتة |
+| Docker | Managing and cleaning containers, images, volumes / إدارة وتنظيف الحاويات والصور والمجلدات |
+| Telegram Bot API | Sending cleanup reports via HTTP POST / إرسال تقارير التنظيف عبر HTTP POST |
+
+### 📚 What I Learned | ماذا تعلمت
+
+1. **Docker System Pruning | تنظيف بيئة دوكر** — Automating the cleanup of unused Docker resources to free up disk space effectively without stopping running services.
+2. **Bash Text Processing for Reporting | معالجة النصوص في باش لإنشاء التقارير** — Using commands like `grep -oP` to extract human-readable disk space reclaimed details from docker output.
+3. **Secret Management in Public Repos | إدارة الأسرار في المستودعات العامة** — Ensuring scripts intended for version control are clear of any real API tokens or bot IDs by using placeholders like `YOUR_BOT_TOKEN_HERE`.
+
+### 💡 Key Takeaways | الخلاصات الرئيسية
+
+> **EN:** Regular maintenance of Docker environments is essential to prevent disk space exhaustion. Automating these tasks while providing immediate visibility via platforms like Telegram ensures a healthy infrastructure without manual checks.
+> 
+> **AR:** الصيانة الدورية لبيئات دوكر ضرورية لمنع استنفاد مساحة القرص. أتمتة هذه المهام مع توفير رؤية فورية عبر منصات مثل تلجرام يضمن بنية تحتية صحية بدون الحاجة للفحص اليدوي.
+
+### 📊 Progress | التقدم
+
+- 🔥 Current Streak / السلسلة الحالية: **1 day / يوم واحد**
+- 📈 Total Commits Today / التزامات اليوم: **1**
+- 🎯 Focus Area / مجال التركيز: Docker Automation & Bash Scripting / أتمتة دوكر وسكربتات باش
+
+---
+
 ## 📅 2026-03-25 — Day 12 | اليوم الثاني عشر
 
 ### 🎯 What I Did Today | ماذا أنجزت اليوم
